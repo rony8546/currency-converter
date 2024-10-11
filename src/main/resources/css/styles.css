@@ -1,0 +1,29 @@
+/* styles.css */
+
+.root {
+    -fx-font-family: "Arial";
+    -fx-base: #ffffff;
+    -fx-background-image: url('img/background.jpg');
+    -fx-background-size: cover;
+}
+
+
+.label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}

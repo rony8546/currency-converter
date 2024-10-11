@@ -1,5 +1,6 @@
 package com.currency.converter;
 
+import com.currency.converter.model.CurrencyConverter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,11 +19,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 640, 480);
+        scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+
+        CurrencyConverter converter = new CurrencyConverter();
+        String exchangeRate = converter.getExchangeRate("USD", "EUR");
+        System.out.println("Exchange rate from USD to EUR: " + exchangeRate);
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
