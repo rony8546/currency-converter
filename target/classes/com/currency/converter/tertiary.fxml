@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.currency.converter.controller.TertiaryController">
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"  prefWidth="400" prefHeight="600" styleClass="main-pane">
     <children>
-        <Label text="Tertiary View" />
-        <Button fx:id="TertiaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
+        <VBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefWidth="400.0" prefHeight="600.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+            <!-- Título -->
+            <Label text="Currency converter" styleClass="header"/>
+
+            <!-- Cantidad a convertir -->
+            <TextField fx:id="amountField" promptText="Enter amount" prefHeight="40.0" prefWidth="200.0" styleClass="input-field"/>
+
+            <!-- Selección de monedas -->
+            <VBox spacing="10.0">
+                <HBox spacing="10.0" alignment="CENTER">
+                    <ComboBox fx:id="fromCurrency" prefHeight="40.0" prefWidth="100.0" styleClass="combo-box">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="NGN" />
+                                <String fx:value="USD" />
+                                <!-- Agrega más divisas aquí -->
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <ComboBox fx:id="toCurrency" prefHeight="40.0" prefWidth="100.0" styleClass="combo-box">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="USD" />
+                                <String fx:value="NGN" />
+                                <!-- Agrega más divisas aquí -->
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </HBox>
+
+                <!-- Tasa de cambio -->
+                <Label fx:id="exchangeRateLabel" text="1 NGN = 0.0014 USD | 1 USD = 740 NGN" styleClass="exchange-rate"/>
+            </VBox>
+
+            <!-- Resultado de la conversión -->
+            <Label fx:id="convertedAmountLabel" text="1000" styleClass="result-label"/>
+
+            <!-- Botón para convertir -->
+            <Button fx:id="convertButton" text="Convert" styleClass="convert-button" prefWidth="150.0" prefHeight="40.0"/>
+        </VBox>
     </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+</AnchorPane>
