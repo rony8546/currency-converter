@@ -1,4 +1,4 @@
-package com.currency.converter.model;
+package com.currency.converter.service;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;

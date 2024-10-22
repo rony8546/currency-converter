@@ -1,4 +1,4 @@
-package com.currency.converter.model;
+package com.currency.converter.service;
 
 import java.util.HashMap;
 import java.util.Map;
